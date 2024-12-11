@@ -17,7 +17,7 @@ jobs:
       run: |
         python3 -m pip install build --user
         pip install -U setuptools wheel
-        pip install -U -r requirements.txt
+        pip install -U -r ./requirements.txt
     - name: Build a binary wheel and a source tarball
       run: python3 -m build
     - name: Store the distribution packages
