@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+exclude = ["benchmarks", "examples", "tests", "wiki", "docs", "feedstock"]
+
+
+[project]
+name = "newsgrabber"
+version = "24.1.0"
+# This is a one-line description or tagline of what your project does. This
+# corresponds to the "Summary" metadata field:
+# https://packaging.python.org/specifications/core-metadata/#summary
+description = "Google News Sitemap Parser"
+readme = "README.rst"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+keywords = ["sitemap", "google news", "parser"]
+authors = [{ name = "Ahmet Yiğit Budak", email = "yibudak@gmail.com" }]
+maintainers = [{ name = "Ahmet Yiğit Budak", email = "yibudak@gmail.com" }]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Topic :: Text Processing :: Indexing",
+    "Topic :: Text Processing :: Markup :: XML",
+]
+
+dependencies = ["lxml", "requests", "python-dateutil"]
+
+[project.optional-dependencies]
+dev = ["check-manifest"]
+test = ["coverage"]
+
+
+[project.urls]
+"Homepage" = "https://github.com/yibudak/newsgrabber"
+"Bug Reports" = "https://github.com/yibudak/newsgrabber/issues"
+"Source" = "https://github.com/yibudak/newsgrabber"
+
+
+[tool.flake8]
+max_line_length = 88
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    ".eggs",
+    ".asv",
+    ".tox",
+    ".ipynb_checkpoints",
+]
+
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+known_first_party = ["newsgrabber", "tests"]
