@@ -14,7 +14,7 @@ jobs:
       with:
         python-version: "3.11"
     - name: Install dependencies
-      run: >
+      run: |
         python3 -m pip install --upgrade pip
         python3 -m pip install --user -r requirements.txt
     - name: Build distribution using setup.py
