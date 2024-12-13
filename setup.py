@@ -1,6 +1,6 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
-from newsgrabber.__about__ import __version__
+from newsgrabber import __about__ as about
 
 
 def __readme():
@@ -17,11 +17,11 @@ tests_require = [
 
 setup(
     name="newsgrabber",
-    version=__version__,
+    version=about.__version__,
     description=" Google News Sitemap Parser",
     long_description=__readme(),
-    author="Ahmet Yiğit Budak",
-    author_email="yibudak@gmail.com",
+    author=about.__author__,
+    author_email=about.__email__,
     url="https://github.com/mediacloud/ultimate-sitemap-parser",
     license="AGPL-3.0",
     keywords="sitemap, google news, parser",
@@ -29,7 +29,8 @@ setup(
     zip_safe=True,
     python_requires=">=3.11",
     install_requires=[
-        # Parsing arbitrary dates (sitemap date format is standardized but some implementations take liberties)
+        # Parsing arbitrary dates (sitemap date format is standardized
+        # but some implementations take liberties)
         "python-dateutil>=2.1,<3.0.0",
         # For parsing XML
         "lxml>=5.3.0",

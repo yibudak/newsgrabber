@@ -13,14 +13,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from lxml import etree
+
 from .models.news_url import NewsUrl
 from .utils import parse_iso8601_date
-
-# self.namespaces = {
-#     "": "http://www.sitemaps.org/schemas/sitemap/0.9",  # Default namespace
-#     "news": "http://www.google.com/schemas/sitemap-news/0.9",  # 'news' namespace
-#     "image": "http://www.google.com/schemas/sitemap-image/1.1",  # 'image' namespace
-# }
 
 
 class SitemapParser:

@@ -12,11 +12,10 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-from requests import Session
-from requests import RequestException
+from requests import RequestException, Session
 
 
-class NetworkManager(object):
+class NetworkManager:
     def __init__(self):
         # Todo: user agent should be configurable
         # Todo: add proxy

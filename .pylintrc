@@ -1,0 +1,58 @@
+[MAIN]
+# List of directories or files to ignore (comma-separated)
+ignore=tests,migrations
+
+
+# List of file patterns to exclude from linting
+ignore-patterns=test_.*\.py,.*_migrations\.py
+
+# Enable/disable specific message categories
+disable=
+    missing-docstring,  # Disable missing docstrings warnings
+    too-few-public-methods,  # Disable warnings for small classes
+    too-many-arguments,  # Disable excessive arguments warnings
+    duplicate-code  # Disable duplicate code checks
+
+[MESSAGES CONTROL]
+# Disable specific messages (fine-grained control)
+disable=
+    W0511,  # Disable TODO comments
+    R0917  # Disable too many positional arguments
+
+[FORMAT]
+# Maximum allowed line length
+max-line-length=88
+
+
+[DESIGN]
+# Maximum number of arguments for a function/method
+max-args=5
+
+# Maximum number of attributes for a class
+max-attributes=15
+
+[STRING]
+
+# This flag controls whether inconsistent-quotes generates a warning when the
+# character used as a quote delimiter is used inconsistently within a module.
+check-quote-consistency=yes
+
+[REPORTS]
+# Tweak report outputs
+output-format=colorized  # Color-coded terminal output
+reports=no  # Disable summary report
+
+[LOGGING]
+# Enable specific logging checks
+logging-format-style=old
+
+[BASIC]
+# Naming conventions for variables, classes, functions, etc.
+variable-rgx=[a-z_][a-z0-9_]{0,30}$  # Snake_case for variables
+argument-rgx=[a-z_][a-z0-9_]{0,30}$  # Snake_case for arguments
+function-rgx=[a-z_][a-z0-9_]{0,30}$  # Snake_case for functions
+class-rgx=[A-Z][a-zA-Z0-9]+$  # PascalCase for classes
+
+[TYPECHECK]
+# Control type-checking behavior
+generated-members=numpy.*,torch.*  # Ignore type-checking errors for libraries

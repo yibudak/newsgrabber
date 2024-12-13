@@ -32,21 +32,34 @@ class NewsUrl:
         image_title=None,
         image_geo_location=None,
     ):
-        """Builds a NewsUrl object.
+        """
+        Builds a NewsUrl object.
 
-        Args:
-            url (str): An URL of the news article.
-            title (str): Title of the news article.
-            publication_date (str): The date of the publication.
-            publication_name (str): Publisher of the news article.
-            language (str): Language of the article
-            last_modification (str, optional): Last modification of article. Defaults to None.
-            keywords (str, optional): Keywords provided by the publisher. Defaults to None.
-            genres (str, optional): Genres provided by the published. Defaults to None.
-            image (str, optional): Image of the article. Defaults to None.
-            image_caption (str, optional): Image caption. Defaults to None.
-            image_title (str, optional): Title of the article's image. Defaults to None.
-            image_geo_location (str, optional): Geolocation of the image. Defaults to None.
+        :param url: An URL of the news article.
+        :type url: str
+        :param title: Title of the news article.
+        :type title: str
+        :param publication_date: The date of the publication.
+        :type publication_date: str
+        :param publication_name: Publisher of the news article.
+        :type publication_name: str
+        :param language: Language of the article.
+        :type language: str
+        :param last_modification: Last modification of the article,
+        defaults to None.
+        :type last_modification: str, optional
+        :param keywords: Keywords provided by the publisher, defaults to None.
+        :type keywords: str, optional
+        :param genres: Genres provided by the publisher, defaults to None.
+        :type genres: str, optional
+        :param image: Image of the article, defaults to None.
+        :type image: str, optional
+        :param image_caption: Image caption, defaults to None.
+        :type image_caption: str, optional
+        :param image_title: Title of the article's image, defaults to None.
+        :type image_title: str, optional
+        :param image_geo_location: Geolocation of the image, defaults to None.
+        :type image_geo_location: str, optional
         """
         self.url = url
         self.title = title
