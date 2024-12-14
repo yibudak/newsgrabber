@@ -14,9 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import datetime
 
-from newsgrabber import utils
-from newsgrabber import NewsGrabber
-from newsgrabber import NetworkManager
+from newsgrabber import NetworkManager, NewsGrabber, utils
 
 
 def test_parse_iso8601_date():
@@ -63,10 +61,7 @@ def test__build_network_manager():
 
     # With Proxy Dict
     proxy_dict = {"http": "socks5://127.0.0.1:1080", "https": "socks5://127.0.0.1:1080"}
-    ng = NewsGrabber(
-        "https://example.com/sitemap.xml",
-        proxy=proxy_dict
-    )
+    ng = NewsGrabber("https://example.com/sitemap.xml", proxy=proxy_dict)
     network_manager = NetworkManager(proxy=proxy_dict)
     assert ng.network_manager.session.proxies == network_manager.session.proxies
     assert ng.network_manager.timeout == network_manager.timeout
