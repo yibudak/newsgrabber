@@ -85,7 +85,11 @@ License
 
 This library is licensed under the AGPL-3.0 License.
 
-.. |PyPI version| image:: https://img.shields.io/pypi/v/newsgrabber?style=flat-square
-.. |Python versions| image:: https://img.shields.io/pypi/pyversions/newsgrabber?style=flat-square
-.. |License| image:: https://img.shields.io/pypi/l/newsgrabber?style=flat-square
+.. |PyPI version| image:: https://img.shields.io/pypi/v/newsgrabber
+   :target: https://pypi.org/project/newsgrabber/
+.. |Python versions| image:: https://img.shields.io/pypi/pyversions/newsgrabber
+   :target: https://pypi.org/project/newsgrabber/
+.. |License| image:: https://img.shields.io/pypi/l/newsgrabber
+   :target: https://raw.githubusercontent.com/yibudak/newsgrabber/main/LICENCE
 .. |Codacy-quality| image:: https://app.codacy.com/project/badge/Grade/596a51d1dd004f8ea76bbdc15caa463d
+   :target: https://app.codacy.com/gh/yibudak/newsgrabber/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
