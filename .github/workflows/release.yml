@@ -41,7 +41,7 @@ jobs:
     - build
     runs-on: ubuntu-latest
     environment:
-      name: pypi
+      name: PyPI
       url: https://pypi.org/p/newsgrabber
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
@@ -73,7 +73,7 @@ jobs:
         name: python-package-distributions
         path: dist/
     - name: Sign the dists with Sigstore
-      uses: sigstore/gh-action-sigstore-python@v3.0.0
+      uses: sigstore/gh-action-sigstore-python@35b92324b30c0d54bd855a061eebba8eb84d4986
       with:
         inputs: >-
           ./dist/*.tar.gz
@@ -96,3 +96,28 @@ jobs:
         gh release upload
         '${{ github.ref_name }}' dist/**
         --repo '${{ github.repository }}'
+
+
+  publish-to-testpypi:
+    name: Publish Python 🐍 distribution 📦 to TestPyPI
+    needs:
+    - build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: TestPyPI
+      url: https://test.pypi.org/p/<package-name>
+
+    permissions:
+      id-token: write  # IMPORTANT: mandatory for trusted publishing
+
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Publish distribution 📦 to TestPyPI
+      uses: pypa/gh-action-pypi-publish@f14df0bb201397d20d91277251b4d8e1e3d23ad4
+      with:
+        repository-url: https://test.pypi.org/legacy/
