@@ -15,6 +15,8 @@
 import datetime
 
 from newsgrabber import utils
+from newsgrabber import NewsGrabber
+from newsgrabber import NetworkManager
 
 
 def test_parse_iso8601_date():
@@ -42,6 +44,38 @@ def test_parse_iso8601_date():
     assert utils.parse_iso8601_date("2024-01-01T00:00:00") == datetime.datetime(
         year=2024, month=1, day=1
     )
+
+
+# NewsGrabber Class Methods
+
+
+def test__get_domain_name():
+    ng = NewsGrabber("https://example.com/sitemap.xml")
+    assert ng._get_domain_name() == "example.com"
+
+
+def test__build_network_manager():
+    # Without any extra parameters
+    ng = NewsGrabber("https://example.com/sitemap.xml")
+    network_manager = NetworkManager()
+    assert ng.network_manager.session.proxies == network_manager.session.proxies
+    assert ng.network_manager.timeout == network_manager.timeout
+
+    # With Proxy Dict
+    proxy_dict = {"http": "socks5://127.0.0.1:1080", "https": "socks5://127.0.0.1:1080"}
+    ng = NewsGrabber(
+        "https://example.com/sitemap.xml",
+        proxy=proxy_dict
+    )
+    network_manager = NetworkManager(proxy=proxy_dict)
+    assert ng.network_manager.session.proxies == network_manager.session.proxies
+    assert ng.network_manager.timeout == network_manager.timeout
+
+    # With Timeout Parameter
+    timeout = 30
+    ng = NewsGrabber("https://example.com/sitemap.xml", timeout=timeout)
+    network_manager = NetworkManager(timeout=timeout)
+    assert ng.network_manager.timeout == network_manager.timeout
 
 
 # TODO: Add more tests

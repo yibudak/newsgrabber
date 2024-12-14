@@ -28,8 +28,8 @@ class NewsGrabber:
             timeout (int, optional): Request timeout. Defaults to 15.
             proxy (_type_, optional): Proxy JSON in dict format. Defaults to None.
         """
-        self.name = self._get_domain_name()
         self.sitemap_url = sitemap_url
+        self.name = self._get_domain_name()
         self.timeout = timeout
         self.proxy = proxy
         self.network_manager = self._build_network_manager()
