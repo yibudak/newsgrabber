@@ -83,9 +83,7 @@ new functionality.
 License
 -------
 
-This library is licensed under the AGPL-3.0 License. See the
-`LICENSE `__ file for more
-details.
+This library is licensed under the AGPL-3.0 License.
 
 .. |PyPI version| image:: https://img.shields.io/pypi/v/newsgrabber?style=flat-square
 .. |Python versions| image:: https://img.shields.io/pypi/pyversions/newsgrabber?style=flat-square
