@@ -69,7 +69,7 @@ Development and Testing
 To set up a development environment:
 
 1. Clone the repository:
-   ``bash  git clone https://github.com/mediacloud/ultimate-sitemap-parser  cd newsgrabber``
+   ``bash  git clone https://github.com/yibudak/newsgrabber  cd newsgrabber``
 2. Install dependencies: ``bash  pip install -e .[test]``
 3. Run tests: ``bash  pytest``
 
