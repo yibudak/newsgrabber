@@ -2,6 +2,7 @@
 # List of directories or files to ignore (comma-separated)
 ignore=tests,migrations
 
+extension-pkg-allow-list=lxml
 
 # List of file patterns to exclude from linting
 ignore-patterns=test_.*\.py,.*_migrations\.py

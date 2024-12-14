@@ -1,7 +1,7 @@
 NewsGrabber: Google News Sitemap Parser
 =======================================
 
-|PyPI version| |Python versions| |Codacy-quality| |License|
+|PyPI version| |Python versions| |Codacy-quality| |Codecov| |License|
 
 **NewsGrabber** is a Python library that parses Google News sitemap
 structures into Python objects, enabling developers to easily extract
@@ -93,3 +93,5 @@ This library is licensed under the AGPL-3.0 License.
    :target: https://raw.githubusercontent.com/yibudak/newsgrabber/main/LICENCE
 .. |Codacy-quality| image:: https://app.codacy.com/project/badge/Grade/596a51d1dd004f8ea76bbdc15caa463d
    :target: https://app.codacy.com/gh/yibudak/newsgrabber/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
+.. |Codecov| image:: https://codecov.io/github/yibudak/newsgrabber/graph/badge.svg?token=ZL6M47HN3L
+   :target: https://codecov.io/github/yibudak/newsgrabber
