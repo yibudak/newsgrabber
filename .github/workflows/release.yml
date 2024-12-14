@@ -2,18 +2,15 @@ name: Release
 
 on:
     workflow_run:
-      workflows:
-        - pre-commit
+      workflows: ["tests", "pre-commit"]
+      branches: [main]
       types:
         - completed
 
-    push:
-      branches:
-        - main
 
 jobs:
   build-and-test:
-    name: Build distribution and run tests 🧪
+    name: Build distribution
     runs-on: ubuntu-latest
 
     steps:
@@ -35,10 +32,6 @@ jobs:
         --user
         -r
         requirements.txt
-    - name: Run Tests
-      run: |
-        python3 -m pip install --user pytest pytest-cov  # Install pytest
-        pytest --cov=newsgrabber  # Run tests with coverage
     - name: Build a binary wheel and a source tarball
       run: python3 -m build
     - name: Store the distribution packages

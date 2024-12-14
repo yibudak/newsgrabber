@@ -14,10 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import datetime
 
-import pytest
-
 from newsgrabber import utils
-from newsgrabber.parser import SitemapParser
 
 
 def test_parse_iso8601_date():
@@ -47,4 +44,4 @@ def test_parse_iso8601_date():
     )
 
 
-# TODO: Add more tests
+# TODO: Add more tests
