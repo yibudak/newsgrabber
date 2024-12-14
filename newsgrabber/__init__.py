@@ -19,18 +19,30 @@ from .parser import SitemapParser
 
 
 class NewsGrabber:
-    def __init__(self, sitemap_url: str) -> None:
+    def __init__(self, sitemap_url: str, timeout=15, proxy=None) -> None:
         """NewsGrabber class to parse news articles from
         Google News Sitemap structure.
 
         Args:
             sitemap_url (str): URL of the sitemap.
+            timeout (int, optional): Request timeout. Defaults to 15.
+            proxy (_type_, optional): Proxy JSON in dict format. Defaults to None.
         """
-        self.name = urlparse(sitemap_url).netloc
+        self.name = self._get_domain_name()
         self.sitemap_url = sitemap_url
-        self.network_manager = NetworkManager()
+        self.timeout = timeout
+        self.proxy = proxy
+        self.network_manager = self._build_network_manager()
+
+        # Placeholder attributes
         self.sitemap_content = None
         self.news_urls = []
+
+    def _build_network_manager(self) -> NetworkManager:
+        return NetworkManager(proxy=self.proxy, timeout=self.timeout)
+
+    def _get_domain_name(self) -> str:
+        return urlparse(self.sitemap_url).netloc
 
     def __str__(self):
         return f"NewsGrabber: {self.name}"

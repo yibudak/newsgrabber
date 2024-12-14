@@ -16,16 +16,19 @@ from requests import RequestException, Session
 
 
 class NetworkManager:
-    def __init__(self):
+    def __init__(self, timeout=15, proxy=None):
         # Todo: user agent should be configurable
         # Todo: add proxy
         self.user_agent = "Googlebot/2.1 (+http://www.google.com/bot.html)"
         self.session = Session()
+        self.timeout = timeout
+        if proxy:
+            self.session.proxies.update(proxy)
         self.session.headers.update({"User-Agent": self.user_agent})
 
     def fetch_sitemap(self, url) -> bytes:
         try:
-            response = self.session.get(url)
+            response = self.session.get(url, timeout=self.timeout)
             response.raise_for_status()
             return response.content
         # TODO: check response size (?)
